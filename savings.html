@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Savings</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+<div class="logo-box">
+
+    <img src="logo.png" class="main-logo">
+
+    <div>
+
+        <div class="logo">
+
+            PetAurPocket
+
+        </div>
+
+        <p class="tagline">
+
+            💸 Pet bhi khush, Pocket bhi ✨
+
+        </p>
+
+    </div>
+
+</div>
+
+    <a href="index.html">🏠 Home</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="trip.html">✈️ Trips</a>
+    <a href="restaurant.html">🍔 Restaurants</a>
+    <a href="savings.html" class="active">🎯 Savings</a>
+    <a href="groups.html">👥 Groups</a>
+    <a href="ai.html">🤖 AI</a>
+    <a href="analytics.html">📈 Analytics</a>
+
+</div>
+
+<div class="main">
+
+    <h1 class="page-title">
+        🎯 Savings Goals
+    </h1>
+
+    <div class="goal-form">
+
+        <input
+            type="text"
+            id="goalName"
+            placeholder="Goal Name">
+
+        <input
+            type="number"
+            id="goalAmount"
+            placeholder="Target Amount">
+
+        <button onclick="addGoal()">
+
+            Add Goal
+
+        </button>
+
+    </div>
+
+    <div id="goalContainer"
+         class="goal-container">
+
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

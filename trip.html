@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Trip Planner</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+<div class="logo-box">
+
+    <img src="logo.png" class="main-logo">
+
+    <div>
+
+        <div class="logo">
+
+            PetAurPocket
+
+        </div>
+
+        <p class="tagline">
+
+            💸 Pet bhi khush, Pocket bhi ✨
+
+        </p>
+
+    </div>
+
+</div>
+
+    <a href="index.html">🏠 Home</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="trip.html">✈️ Trips</a>
+    <a href="restaurant.html">🍔 Restaurants</a>
+    <a href="savings.html">🎯 Savings</a>
+    <a href="groups.html">👥 Groups</a>
+    <a href="ai.html">🤖 AI</a>
+    <a href="analytics.html">📈 Analytics</a>
+
+</div>
+
+<div class="main">
+
+    <h1 class="page-title">
+        ✈️ Smart Trip Planner
+    </h1>
+
+    <div class="trip-form">
+
+        <input
+            type="text"
+            id="destination"
+            placeholder="Destination">
+
+        <input
+            type="number"
+            id="budget"
+            placeholder="Budget">
+
+        <input
+            type="number"
+            id="days"
+            placeholder="Number of Days">
+
+        <select id="tripType">
+
+            <option>Adventure</option>
+            <option>Luxury</option>
+            <option>Family</option>
+            <option>Solo</option>
+
+        </select>
+
+        <button onclick="createTrip()">
+
+            Create Trip ✈️
+
+        </button>
+
+    </div>
+
+    <div id="tripResults"
+         class="group-grid">
+         <p id="emptyTrips">
+    No trips created yet ✈️
+</p>
+
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

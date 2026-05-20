@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Restaurant Finder</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+<div class="logo-box">
+
+    <img src="logo.png" class="main-logo">
+
+    <div>
+
+        <div class="logo">
+
+            PetAurPocket
+
+        </div>
+
+        <p class="tagline">
+
+            💸 Pet bhi khush, Pocket bhi ✨
+
+        </p>
+
+    </div>
+
+</div>
+    <a href="index.html">🏠 Home</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="trip.html">✈️ Trips</a>
+    <a href="restaurant.html">🍔 Restaurants</a>
+    <a href="savings.html">🎯 Savings</a>
+    <a href="groups.html">👥 Groups</a>
+    <a href="ai.html">🤖 AI</a>
+    <a href="analytics.html">📈 Analytics</a>
+
+</div>
+
+<div class="main">
+
+    <h1 class="page-title">
+        🍔 Restaurant Recommender
+    </h1>
+
+    <div class="restaurant-box">
+
+        <input
+            type="text"
+            id="foodBudget"
+            placeholder="Budget">
+
+        <select id="foodType">
+
+            <option>Indian</option>
+            <option>Chinese</option>
+            <option>Italian</option>
+            <option>Street Food</option>
+
+        </select>
+
+        <select id="tasteType">
+
+            <option>Spicy</option>
+            <option>Sweet</option>
+            <option>Healthy</option>
+            <option>Fast Food</option>
+
+        </select>
+
+        <button onclick="recommendRestaurant()">
+
+            Find Restaurants 🍕
+
+        </button>
+
+    </div>
+
+    <div id="restaurantResults"
+         class="group-grid">
+
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Groups</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+ <div class="logo-box">
+
+    <img src="logo.png" class="main-logo">
+
+    <div>
+
+        <div class="logo">
+
+            PetAurPocket
+
+        </div>
+
+        <p class="tagline">
+
+            💸 Pet bhi khush, Pocket bhi ✨
+
+        </p>
+
+    </div>
+
+</div>
+
+    <a href="index.html">🏠 Home</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="trip.html">✈️ Trips</a>
+    <a href="restaurant.html">🍔 Restaurants</a>
+    <a href="savings.html">🎯 Savings</a>
+    <a href="groups.html" class="active">👥 Groups</a>
+    <a href="ai.html">🤖 AI</a>
+    <a href="analytics.html">📈 Analytics</a>
+
+</div>
+
+<div class="main">
+
+    <h1 class="page-title">
+
+        👥 Expense Groups
+
+    </h1>
+
+    <div class="group-form">
+
+        <input
+            type="text"
+            id="groupName"
+            placeholder="Group Name">
+
+        <input
+            type="number"
+            id="memberCount"
+            placeholder="Number of Members">
+
+        <button onclick="createGroup()">
+
+            Create Group
+
+        </button>
+
+    </div>
+
+    <div id="groupContainer"
+         class="group-grid">
+
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
