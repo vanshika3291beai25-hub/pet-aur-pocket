@@ -3,19 +3,19 @@
 // =======================
 
 let expenses =
-JSON.parse(localStorage.getItem("expenses")) || [];
+    JSON.parse(localStorage.getItem("expenses")) || [];
 
-function addExpenseFromUI(){
+function addExpenseFromUI() {
 
     let title =
-    document.getElementById("expenseTitle");
+        document.getElementById("expenseTitle");
 
     let amount =
-    document.getElementById("expenseAmount");
+        document.getElementById("expenseAmount");
 
-    if(!title || !amount) return;
+    if (!title || !amount) return;
 
-    if(title.value==="" || amount.value===""){
+    if (title.value === "" || amount.value === "") {
 
         alert("Fill all fields");
         return;
@@ -23,8 +23,8 @@ function addExpenseFromUI(){
 
     let expense = {
 
-        title:title.value,
-        amount:Number(amount.value)
+        title: title.value,
+        amount: Number(amount.value)
 
     };
 
@@ -35,34 +35,34 @@ function addExpenseFromUI(){
         JSON.stringify(expenses)
     );
 
-    title.value="";
-    amount.value="";
+    title.value = "";
+    amount.value = "";
 
     loadExpenses();
 }
 
-function loadExpenses(){
+function loadExpenses() {
 
     let list =
-    document.getElementById("transactionList");
+        document.getElementById("transactionList");
 
     let totalExpense =
-    document.getElementById("totalExpense");
+        document.getElementById("totalExpense");
 
-    if(!list) return;
+    if (!list) return;
 
-    list.innerHTML="";
+    list.innerHTML = "";
 
-    let total=0;
+    let total = 0;
 
-    expenses.forEach((expense,index)=>{
+    expenses.forEach((expense, index) => {
 
         total += expense.amount;
 
         let li =
-        document.createElement("li");
+            document.createElement("li");
 
-        li.innerHTML=`
+        li.innerHTML = `
 
             ${expense.title}
             - ₹${expense.amount}
@@ -79,17 +79,17 @@ function loadExpenses(){
 
     });
 
-    if(totalExpense){
+    if (totalExpense) {
 
-        totalExpense.innerText=`₹${total}`;
+        totalExpense.innerText = `₹${total}`;
 
     }
 
 }
 
-function deleteExpense(index){
+function deleteExpense(index) {
 
-    expenses.splice(index,1);
+    expenses.splice(index, 1);
 
     localStorage.setItem(
         "expenses",
@@ -103,71 +103,71 @@ function deleteExpense(index){
 // TRIPS
 // =======================
 
-function createTrip(){
+function createTrip() {
 
     let destination =
-    document.getElementById("destination");
+        document.getElementById("destination");
 
     let budget =
-    document.getElementById("budget");
+        document.getElementById("budget");
 
     let days =
-    document.getElementById("days");
+        document.getElementById("days");
 
     let type =
-    document.getElementById("tripType");
+        document.getElementById("tripType");
 
-    if(!destination || !budget || !days || !type) return;
+    if (!destination || !budget || !days || !type) return;
 
-    if(
-        destination.value==="" ||
-        budget.value==="" ||
-        days.value===""
-    ){
+    if (
+        destination.value === "" ||
+        budget.value === "" ||
+        days.value === ""
+    ) {
 
         alert("Fill all fields");
         return;
     }
 
-    let recommendations="";
+    let recommendations = "";
 
-    if(type.value==="Adventure"){
+    if (type.value === "Adventure") {
 
-        recommendations=
-        "Try trekking and camping.";
-
-    }
-
-    else if(type.value==="Luxury"){
-
-        recommendations=
-        "Book premium hotels.";
+        recommendations =
+            "Try trekking and camping.";
 
     }
 
-    else if(type.value==="Family"){
+    else if (type.value === "Luxury") {
 
-        recommendations=
-        "Visit family resorts.";
+        recommendations =
+            "Book premium hotels.";
 
     }
 
-    else{
+    else if (type.value === "Family") {
 
-        recommendations=
-        "Explore local cafes.";
+        recommendations =
+            "Visit family resorts.";
+
+    }
+
+    else {
+
+        recommendations =
+            "Explore local cafes.";
 
     }
 
     let resultDiv =
-    document.getElementById("tripResults");
+        document.getElementById("tripResults");
 
     let card =
-    document.createElement("div");
+        document.createElement("div");
 
     card.classList.add("trip-card");
 
-    card.innerHTML=`
+    card.innerHTML = `
 
         <h2>✈️ ${destination.value}</h2>
 
@@ -189,69 +189,69 @@ function createTrip(){
 // RESTAURANTS
 // =======================
 
-function recommendRestaurant(){
+function recommendRestaurant() {
 
     let budget =
-    document.getElementById("foodBudget");
+        document.getElementById("foodBudget");
 
     let foodType =
-    document.getElementById("foodType");
+        document.getElementById("foodType");
 
     let taste =
-    document.getElementById("tasteType");
+        document.getElementById("tasteType");
 
-    if(!budget || !foodType || !taste) return;
+    if (!budget || !foodType || !taste) return;
 
-    let restaurant="";
-    let dishes="";
+    let restaurant = "";
+    let dishes = "";
 
-    if(foodType.value==="Indian"){
+    if (foodType.value === "Indian") {
 
-        restaurant="Punjab Grill";
+        restaurant = "Punjab Grill";
 
-        dishes=
-        "Paneer Tikka, Butter Chicken";
-
-    }
-
-    else if(foodType.value==="Chinese"){
-
-        restaurant="Wok Express";
-
-        dishes=
-        "Noodles, Momos";
+        dishes =
+            "Paneer Tikka, Butter Chicken";
 
     }
 
-    else if(foodType.value==="Italian"){
+    else if (foodType.value === "Chinese") {
 
-        restaurant="Pizza Hub";
+        restaurant = "Wok Express";
 
-        dishes=
-        "Pizza, Pasta";
+        dishes =
+            "Noodles, Momos";
 
     }
 
-    else{
+    else if (foodType.value === "Italian") {
 
-        restaurant="Delhi Street";
+        restaurant = "Pizza Hub";
 
-        dishes=
-        "Chaat, Rolls";
+        dishes =
+            "Pizza, Pasta";
+
+    }
+
+    else {
+
+        restaurant = "Delhi Street";
+
+        dishes =
+            "Chaat, Rolls";
 
     }
 
     let resultDiv =
-    document.getElementById(
-        "restaurantResults"
-    );
+        document.getElementById(
+            "restaurantResults"
+        );
 
     let card =
-    document.createElement("div");
+        document.createElement("div");
 
     card.classList.add("trip-card");
 
-    card.innerHTML=`
+    card.innerHTML = `
 
         <h2>🍔 ${restaurant}</h2>
 
@@ -274,34 +274,34 @@ function recommendRestaurant(){
 // =======================
 
 let goals =
-JSON.parse(localStorage.getItem("goals")) || [];
+    JSON.parse(localStorage.getItem("goals")) || [];
 
-function addGoal(){
+function addGoal() {
 
     let goalName =
-    document.getElementById("goalName");
+        document.getElementById("goalName");
 
     let goalAmount =
-    document.getElementById("goalAmount");
+        document.getElementById("goalAmount");
 
     let container =
-    document.getElementById("goalContainer");
+        document.getElementById("goalContainer");
 
-    if(!goalName || !goalAmount || !container) return;
+    if (!goalName || !goalAmount || !container) return;
 
-    if(
-        goalName.value==="" ||
-        goalAmount.value===""
-    ){
+    if (
+        goalName.value === "" ||
+        goalAmount.value === ""
+    ) {
 
         alert("Fill all fields");
         return;
     }
 
-    let goal={
+    let goal = {
 
-        name:goalName.value,
-        amount:goalAmount.value
+        name: goalName.value,
+        amount: goalAmount.value
 
     };
 
@@ -314,27 +314,27 @@ function addGoal(){
 
     renderGoals();
 
-    goalName.value="";
-    goalAmount.value="";
+    goalName.value = "";
+    goalAmount.value = "";
 }
 
-function renderGoals(){
+function renderGoals() {
 
     let container =
-    document.getElementById("goalContainer");
+        document.getElementById("goalContainer");
 
-    if(!container) return;
+    if (!container) return;
 
-    container.innerHTML="";
+    container.innerHTML = "";
 
-    goals.forEach((goal,index)=>{
+    goals.forEach((goal, index) => {
 
         let card =
-        document.createElement("div");
+            document.createElement("div");
 
         card.classList.add("goal-card");
 
-        card.innerHTML=`
+        card.innerHTML = `
 
             <h2>🎯 ${goal.name}</h2>
 
@@ -354,9 +354,9 @@ function renderGoals(){
 
 }
 
-function deleteGoal(index){
+function deleteGoal(index) {
 
-    goals.splice(index,1);
+    goals.splice(index, 1);
 
     localStorage.setItem(
         "goals",
@@ -371,34 +371,34 @@ function deleteGoal(index){
 // =======================
 
 let groups =
-JSON.parse(localStorage.getItem("groups")) || [];
+    JSON.parse(localStorage.getItem("groups")) || [];
 
-function createGroup(){
+function createGroup() {
 
     let groupName =
-    document.getElementById("groupName");
+        document.getElementById("groupName");
 
     let memberCount =
-    document.getElementById("memberCount");
+        document.getElementById("memberCount");
 
     let container =
-    document.getElementById("groupContainer");
+        document.getElementById("groupContainer");
 
-    if(!groupName || !memberCount || !container) return;
+    if (!groupName || !memberCount || !container) return;
 
-    if(
-        groupName.value==="" ||
-        memberCount.value===""
-    ){
+    if (
+        groupName.value === "" ||
+        memberCount.value === ""
+    ) {
 
         alert("Fill all fields");
         return;
     }
 
-    let group={
+    let group = {
 
-        name:groupName.value,
-        members:memberCount.value
+        name: groupName.value,
+        members: memberCount.value
 
     };
 
@@ -411,27 +411,27 @@ function createGroup(){
 
     renderGroups();
 
-    groupName.value="";
-    memberCount.value="";
+    groupName.value = "";
+    memberCount.value = "";
 }
 
-function renderGroups(){
+function renderGroups() {
 
     let container =
-    document.getElementById("groupContainer");
+        document.getElementById("groupContainer");
 
-    if(!container) return;
+    if (!container) return;
 
-    container.innerHTML="";
+    container.innerHTML = "";
 
-    groups.forEach((group,index)=>{
+    groups.forEach((group, index) => {
 
         let card =
-        document.createElement("div");
+            document.createElement("div");
 
         card.classList.add("group-card");
 
-        card.innerHTML=`
+        card.innerHTML = `
 
             <h2>👥 ${group.name}</h2>
 
@@ -451,9 +451,9 @@ function renderGroups(){
 
 }
 
-function deleteGroup(index){
+function deleteGroup(index) {
 
-    groups.splice(index,1);
+    groups.splice(index, 1);
 
     localStorage.setItem(
         "groups",
@@ -464,80 +464,154 @@ function deleteGroup(index){
 }
 
 // =======================
-// AI BOT
+// SMART AI CHATBOT
 // =======================
 
-function sendMessage(){
+function sendMessage() {
 
     let input =
-    document.getElementById("userInput");
+        document.getElementById("userInput");
 
     let chatBox =
-    document.getElementById("chatBox");
+        document.getElementById("chatBox");
 
-    if(!input || !chatBox) return;
+    if (!input || !chatBox) return;
 
     let text =
-    input.value.toLowerCase();
+        input.value.trim().toLowerCase();
 
-    if(text==="") return;
+    if (text === "") return;
+
+    // USER MESSAGE
 
     let userDiv =
-    document.createElement("div");
+        document.createElement("div");
 
     userDiv.classList.add("user-msg");
 
-    userDiv.innerText=text;
+    userDiv.innerText = text;
 
     chatBox.appendChild(userDiv);
 
-    let responses=[
+    // AI RESPONSE VARIABLE
 
-        "Track expenses regularly.",
+    let aiResponse = "";
 
-        "Plan trips in advance.",
+    // GREETINGS
 
-        "Save at least 20% monthly.",
+    if (
+        text.includes("hi") ||
+        text.includes("hello") ||
+        text.includes("hey")
+    ) {
 
-        "Use group splitting to save money.",
+        aiResponse =
+            "👋 Hello! Welcome to PetAurPocket AI Assistant.";
 
-        "Street food is budget friendly."
+    }
 
-    ];
+    // SAVINGS
 
-    let aiResponse =
-    responses[
-        Math.floor(
-            Math.random()*responses.length
-        )
-    ];
+    else if (
+        text.includes("save") ||
+        text.includes("saving")
+    ) {
 
-    setTimeout(()=>{
+        aiResponse =
+            "💸 Try saving at least 20% of your monthly income and avoid unnecessary expenses.";
+
+    }
+
+    // EXPENSES
+
+    else if (
+        text.includes("expense") ||
+        text.includes("budget")
+    ) {
+
+        aiResponse =
+            "📊 Track your expenses daily and create a monthly budget plan.";
+
+    }
+
+    // TRAVEL
+
+    else if (
+        text.includes("trip") ||
+        text.includes("travel") ||
+        text.includes("vacation")
+    ) {
+
+        aiResponse =
+            "✈️ Budget trips can help you save money. Try planning early and booking in advance.";
+
+    }
+
+    // RESTAURANTS
+
+    else if (
+        text.includes("food") ||
+        text.includes("restaurant") ||
+        text.includes("eat")
+    ) {
+
+        aiResponse =
+            "🍔 Local cafes and street food are usually more budget-friendly.";
+
+    }
+
+    // GROUPS
+
+    else if (
+        text.includes("group") ||
+        text.includes("friends")
+    ) {
+
+        aiResponse =
+            "👥 Split expenses with friends to manage group budgets easily.";
+
+    }
+
+    // MONEY TIPS
+
+    else if (
+        text.includes("money")
+    ) {
+
+        aiResponse =
+            "💰 Smart money habits today create financial freedom tomorrow.";
+
+    }
+
+    // DEFAULT REPLY
+
+    else {
+
+        aiResponse =
+            "🤖 I can help with savings, budgeting, trips, restaurants and finance tips.";
+
+    }
+
+    // SHOW AI RESPONSE
+
+    setTimeout(() => {
 
         let aiDiv =
-        document.createElement("div");
+            document.createElement("div");
 
         aiDiv.classList.add("ai-msg");
 
-        aiDiv.innerText=aiResponse;
+        aiDiv.innerText =
+            aiResponse;
 
         chatBox.appendChild(aiDiv);
 
-    },500);
+        // AUTO SCROLL
 
-    input.value="";
-}
+        chatBox.scrollTop =
+            chatBox.scrollHeight;
 
-// =======================
-// LOAD EVERYTHING
-// =======================
+    }, 500);
 
-window.onload=function(){
-
-    loadExpenses();
-
-    renderGoals();
-
-    renderGroups();
-
+    input.value = "";
 }
